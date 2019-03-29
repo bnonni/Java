@@ -1,0 +1,24 @@
+public interface CardGameInterface {
+
+ public boolean isEmpty();
+
+ public boolean isFull();
+
+ public void popAll();
+
+ public void cheat() throws CardGameRulesViolation;
+
+ public void shuffle(Object[] dk, Integer le);
+
+ public void createDeck(Object o) throws CardGameRulesViolation;
+
+ public Object deal() throws CardGameRulesViolation;
+
+ public boolean compare(Object cd1, Object cd2);
+
+ public class CardGameRulesViolation extends RuntimeException {
+  public CardGameRulesViolation(String s) {
+   super(s);
+  }
+ }
+}

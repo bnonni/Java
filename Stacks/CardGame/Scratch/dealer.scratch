@@ -1,0 +1,44 @@
+import java.util.*;
+import java.util.Scanner;
+
+public class Dealer {
+ public static final int DECK_SIZE = 52;
+ public static int j = 1;
+
+ public static void main(String[] args) {
+  CardGame deck = new CardGame();
+  Object deckArr[] = new Object[DECK_SIZE];
+  Scanner in = new Scanner(System.in);
+  String[] rank = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
+  String[] suit = { "\u2665", "\u2666", "\u2663", "\u2660" };
+  for (int i = 0; i < rank.length; i++) {
+   for (int j = 0; j < suit.length; j++) {
+    if (!deck.isFull()) {
+     Object s = suit[j];
+     Object r = rank[j];
+     Card card = new Card(s, r);
+     Integer cl = suit.length * i + j;
+     deckArr[cl] = card;
+     deck.createDeck(deckArr[cl]);
+     card.print();
+    }
+   }
+  }
+  try {
+   Integer len = deckArr.length;
+   Thread.sleep(1000);
+   String answer = in.next();
+   System.out.println("Shuffling cards.");
+   deck.shuffle(deckArr, len);
+   while ((answer == "y") | (answer == "Y")) {
+    Object card1 = deck.deal();
+    Object card2 = deck.deal();
+    System.out.println("Your cards are " + card1 + " " + card2);
+    deck.compare(card1, card2);
+   }
+  } catch (InterruptedException x) {
+   Thread.currentThread().interrupt();
+
+  }
+ }
+}

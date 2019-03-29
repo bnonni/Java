@@ -1,0 +1,23 @@
+public class Card {
+ private String suit;
+ private String num;
+ private int j;
+
+ public Card() {
+
+ }
+
+ public Card(Object c1, Object c2) {
+  c1 = suit;
+  c2 = num;
+ }
+
+ public void print() {
+  System.out.println("\nWelcome to 2 Card Draw! Here is the deck:");
+  for (j = 52; j >= 0; j--) {
+   System.out.print(suit + num + " ");
+  }
+  System.out.println("\n\nWould you like to play? (y/n)\n");
+ }
+}
+

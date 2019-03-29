@@ -1,0 +1,59 @@
+import java.util.Arrays;
+
+public class Dealer {
+ public static final int MAX_DECK = 52;
+
+ public static void main(String[] args) {
+  Object arr[] = new Object[MAX_DECK];
+  CardStack cardstack = new CardStack();
+  String[] suits = { "\u2665", "\u2666", "\u2663", "\u2660" };
+  String[] face_cards = { "J", "Q", "K", "A" };
+  int m = 2;
+  int n = 2;
+  int o = 2;
+  int p = 2;
+  int r = 0;
+  int s = 0;
+  int t = 0;
+  int u = 0;
+  for (int i = 0; i < 9; i++) {
+   arr[i] = (m) + suits[r];
+   m += 1;
+   cardstack.push(arr[i]);
+  }
+  for (int j = 9; j < 18; j++) {
+   arr[j] = (n) + suits[r + 1];
+   n += 1;
+   cardstack.push(arr[j]);
+  }
+  for (int k = 18; k < 27; k++) {
+   arr[k] = (o) + suits[r + 2];
+   o += 1;
+   cardstack.push(arr[k]);
+  }
+  for (int l = 27; l < 36; l++) {
+   arr[l] = (p) + suits[r + 3];
+   p += 1;
+   cardstack.push(arr[l]);
+  }
+  for (int q = 36; q < 40; q++) {
+   arr[q] = face_cards[r] + suits[r];
+   r++;
+  }
+  for (int a = 40; a < 44; a++) {
+   arr[a] = face_cards[s] + suits[s];
+   s++;
+  }
+  for (int b = 44; b < 48; b++) {
+   arr[b] = face_cards[t] + suits[t];
+   t++;
+  }
+  for (int c = 48; c < 52; c++) {
+   arr[c] = face_cards[u] + suits[u];
+   u++;
+  }
+  System.out.println("\nNumbered Suits: " + Arrays.toString(arr) + "\n");
+  int len = arr.length;
+  System.out.println(len);
+ }
+}

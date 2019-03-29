@@ -1,0 +1,74 @@
+
+public class CardGame implements CardGameInterface {
+ final int DECK_SIZE = 52;
+ private Object deck[];
+ private int top;
+
+ public CardGame() {
+  deck = new Object[DECK_SIZE];
+  top = -1;
+ }
+
+ @Override
+ public boolean isEmpty() {
+  return top < 0;
+ }
+
+ @Override
+ public boolean isFull() {
+  return top == DECK_SIZE - 1;
+ }
+
+ @Override
+ public void popAll() {
+  deck = new Object[DECK_SIZE];
+  top = -1;
+ }
+
+ @Override
+ public void cheat() throws CardGameRulesViolation {
+  throw new CardGameRulesViolation("Card Game Rules Violation: Peek not allowed.");
+ }
+
+ @Override
+ public void shuffle(Object[] deck, Integer length) {
+  popAll();
+  for (int i = 0; i < length; i++) {
+   int index = (int) (Math.random() * length);
+   Object temp = deck[i];
+   deck[i] = deck[index];
+   deck[index] = temp;
+   createDeck(deck[i]);
+  }
+  System.out.println("Cards are shuffled.");
+ }
+
+ @Override
+ public void createDeck(Object obj) throws CardGameRulesViolation {
+  if (!isFull()) {
+   deck[++top] = obj;
+  } else {
+   throw new CardGameRulesViolation("Card Game Rules Violation: The deck is full! Don't stuff the deck!");
+  }
+ }
+
+ @Override
+ public Object deal() throws CardGameRulesViolation {
+  if (!isEmpty()) {
+   return deck[top--];
+  } else {
+   throw new CardGameRulesViolation("Card Game Rules Violation: stack empty");
+  }
+ }
+
+ @Override
+ public boolean compare(Object c1, Object c2) {
+  if (c1 instanceof CardGame) {
+   CardGame other = (CardGame) c1;
+   return c1.equals(other);
+  } else {
+   return false;
+  }
+ }
+
+}

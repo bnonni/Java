@@ -1,0 +1,45 @@
+import java.util.Arrays;
+
+public class Dealer {
+ public static final int MAX_DECK = 53;
+ public static final int MAX_NUMS = 12;
+ public static final int MAX_RANK = 11;
+
+ public static void main(String[] args) {
+  Object arr[] = new Object[MAX_DECK];
+  CardStack cardstack = new CardStack();
+  String hearts = "\u2665";
+  String diamonds = "\u2666";
+  String clubs = "\u2663";
+  String spades = "\u2660";
+  for (int h = 0; h < MAX_NUMS; h++) {
+   arr[h] = i + hearts;
+   if (!cardstack.isFull()) {
+    cardstack.push(arr[h]);
+   }
+   i += 1;
+  }
+  for (int d = 1; d < MAX_NUMS; d++) {
+   arr[d] = i + diamonds;
+   if (!cardstack.isFull()) {
+    cardstack.push(arr[d]);
+   }
+   i += 1;
+  }
+  for (int c = 2; c < MAX_NUMS; c++) {
+   arr[c] = i + clubs;
+   if (!cardstack.isFull()) {
+    cardstack.push(arr[c]);
+   }
+   i += 1;
+  }
+  for (int s = 3; s < MAX_NUMS; s++) {
+   arr[s] = i + spades;
+   if (!cardstack.isFull()) {
+    cardstack.push(arr[s]);
+   }
+   i += 1;
+  }
+  System.out.println("\nNumbered Suits: " + Arrays.toString(arr) + "\n");
+ }
+}
