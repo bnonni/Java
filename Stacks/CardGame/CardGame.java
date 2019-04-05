@@ -3,7 +3,6 @@ public class CardGame implements CardGameInterface {
  final int DECK_SIZE = 52;
  private Card deck[];
  private int top;
- private int i;
 
  public CardGame() {
   deck = new Card[DECK_SIZE];

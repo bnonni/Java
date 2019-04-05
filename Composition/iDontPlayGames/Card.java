@@ -1,4 +1,5 @@
-public class Card extends DeckOfCards {
+
+public class Card extends Dealer {
  public String suit, rank;
 
  public Card() {
@@ -11,15 +12,8 @@ public class Card extends DeckOfCards {
   this.rank = rank;
  }
 
- public String dealCard() {
-  return suit + rank;
+ public void dealCard() {
+  System.out.println(suit + rank);
  }
 
- public String getSuit(Card card) {
-  return card.suit;
- }
-
- public String getRank(Card card) {
-  return card.rank;
- }
 }

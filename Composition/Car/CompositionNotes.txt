@@ -1,0 +1,8 @@
+Practical Applications of Composition
+1. Employee database records
+2. SmartPhone has-a CalculatorApp
+              has-a NotesApp
+              has-a CalendarApp
+              *ExtraContent*
+                   has-a DatingApp > Hinder is-a DatingApp
+   How is this relevant?? Who here has a smart phone? Do you group your apps in folders? 

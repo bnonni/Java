@@ -1,3 +1,4 @@
+
 public class Queue implements QueueInterface {
  public Node last;
 
