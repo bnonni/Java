@@ -1,4 +1,4 @@
-public class Client {
+public class Coding {
  public static void main(String[] args) {
   Programmer employee_001 = new Programmer("Bryan", 28, 'M');
   Computer c_001 = new Computer();

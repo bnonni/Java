@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class 1-TowerOfHanoi {
+public class TowerOfHanoi {
  public static void shift(int n, String startPole, String intermediatePole, String endPole) {
   if (n == 1) {
    return;

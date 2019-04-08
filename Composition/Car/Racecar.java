@@ -1,8 +1,6 @@
 public class Racecar extends Car {
- private String type;
-
  public void startRacecar() {
-  Engine MarutiEngine = new Engine();
-  MarutiEngine.start();
+  Engine NASCAR_engine = new Engine();
+  NASCAR_engine.start();
  }
 }
