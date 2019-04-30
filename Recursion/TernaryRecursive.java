@@ -1,4 +1,4 @@
-public class Lab2 {
+public class TernaryRecursive {
  public static void main(String[] args) {
   System.out.println(recursion(126));
  }

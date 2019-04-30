@@ -1,4 +1,4 @@
-public class MyRecursion2 {
+public class SumRecursive {
  public static void main(String[] args) {
   System.out.println(sumAll(3));
  }
@@ -11,6 +11,6 @@ public class MyRecursion2 {
   }
  }
 }
-// 3 + sumAll(2) = 3 + 3 = 6
-// sumAll(2) = 2 + sumAll(1) = 2 + 1 = 3
-// sumAll(1) = 1
+// 1. 3 + 3 = 6
+// 2. sumAll(2) = 3
+// 3. sumAll(1) = 1

@@ -1,4 +1,4 @@
-public class MyRecursion3 {
+public class MultiplicationRecursive {
  public static void main(String[] args) {
   System.out.println(multiplyOdd(3));
  }

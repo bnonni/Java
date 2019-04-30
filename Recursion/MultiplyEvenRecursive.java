@@ -1,4 +1,4 @@
-public class MultiplyMain {
+public class MultiplyEvenRecursive {
  public static void main(String[] args) {
   System.out.println(multiplyEven(3));
  }

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MyRecursion {
+public class IterativeMethods {
  public static void main(String[] args) {
   goodMorning();
   System.out.println();
