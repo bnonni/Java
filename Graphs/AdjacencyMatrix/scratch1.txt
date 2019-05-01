@@ -1,0 +1,108 @@
+
+/*
+author: Bryan Nonni
+date: April 13, 2019
+program: adjacency matrix based graph - create; perform DFS; perform BFS
+ | 0  1  2  3  4  5  6  7  8  9
+0| 0  0  0  0  1  0  1  0  0  0 
+1| 0  0  1  0  1  0  0  0  0  0
+2| 0  1  0  0  0  0  1  0  0  0
+3| 0  0  0  0  0  0  1  0  1  0
+4| 1  1  0  0  0  0  0  0  0  0
+5| 0  0  0  0  0  0  0  1  0  1
+6| 1  0  1  1  0  0  0  1  0  0
+7| 0  0  0  0  0  1  1  0  1  0
+8| 0  0  0  1  0  0  0  1  0  0
+9| 0  0  0  0  0  1  0  0  0  0 
+_______________________________
+Order DFS: 0 <--> 4 <--> 1 <--> 2 <--> 6 <--> 3 <--> 8 <--> 7 <--> 5 <--> 9
+Order BFS: 0 --> 4 --> 6 -> 1 -> 2 -> 3 -> 7 -> 8 -> 5 -> 9
+           0 --> 6
+           4 --> 
+*/
+
+public class Graph extends GraphQueue implements GraphInterface {
+   private Integer adj_matrix[][];
+   private int size;
+
+   public Graph(int v) {
+      this.size = v;
+      adj_matrix = new Integer[v][v];
+   }
+
+   public void addEdge(int source, int destination) throws GraphException {
+      adj_matrix[source][destination] = 1;
+      adj_matrix[destination][source] = 1;
+   }
+
+   public void printGraph() {
+      for (int i = 0; i < size; i++) {
+         for (int j = 0; j < size; j++) {
+            if (adj_matrix[i][j] == null) {
+               System.out.print(0 + " ");
+            } else if (adj_matrix[i][j] != null) {
+               System.out.print(adj_matrix[i][j] + " ");
+            }
+            if (j == 9) {
+               System.out.print("\n");
+            }
+         }
+      }
+   }
+
+   public void DFSutil(Graph g, int r, int c, boolean[] visit) {
+      System.out.print(r + " " + c);
+      visit[r] = true;
+      visit[c] = true;
+      r = c;
+      c = 0;
+      depthFirstSearch(g, r, c, visit);
+   }
+
+   public void depthFirstSearch(Graph g, int r, int c, boolean[] visit) {
+      int m = size;
+      while (size >= 0) {
+         if (!visit[r]) { // 0
+            visit[r] = true;
+            System.out.print(" " + r);
+         } else if (visit[r]) {
+            for (int i = c; i < m; i++) {
+               if (adj_matrix[r][i] != null && !visit[i]) {
+                  visit[i] = true;
+                  System.out.print(" " + i);
+                  r = i;
+               }
+            }
+         }
+         size--;
+      }
+   }
+
+   public void BFSutil(Graph g, GraphQueue gq, int rr, boolean[] mark) { // r = 0
+      gq.enqueue(rr);
+      mark[r] = true;
+      breadthFirstSearch(g, gq, rr, mark);
+   }
+
+   public void breadthFirstSearch(Graph g, GraphQueue gq, int rr, boolean[] mark) {
+      int n = size;
+      System.out.println("Here.");
+      System.exit(0);
+      while (size >= 0) {
+         System.out.print(gq.dequeue() + " ");
+         mark[rr] = true;
+         for (int i = rr; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+               if (adj_matrix[i][j] != null && !mark[j]) {
+                  mark[j] = true;
+                  gq.enqueue(j);
+                  System.out.print(" " + j);
+                  rr = j;
+               }
+            }
+         }
+         size--;
+      }
+   }
+
+}

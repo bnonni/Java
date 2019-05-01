@@ -1,0 +1,151 @@
+/*
+author: Bryan Nonni
+date: April 12, 2019
+program: adjeacency matrix graph, DFS, BFS
+  ______________________________
+~| 0  1  2  3  4  5  6  7  8  9 |
+0| 0  0  0  0  1  0  3  0  0  0 |
+1| 0  0  2  0  4  0  0  0  0  0 |
+2| 0  2  0  0  0  0 10  0  0  0 |
+3| 0  0  0  0  0  0  8  0  4  0 |
+4| 1  4  0  0  0  0  0  0  0  0 | 
+5| 0  0  0  0  0  0  0  2  0  2 |
+6| 3  0 10  8  0  0  0  5  0  0 |
+7| 0  0  0  0  0  2  5  0  7  0 |
+8| 0  0  0  4  0  0  0  7  0  0 |
+9| 0  0  0  0  0  2  0  0  0  0 |
+~|______________________________|
+0-4-1-2-6-3-8-7-5-9
+*/
+public class WeightedGraph implements WeightedGraphInterface {
+  private int number_vertices;
+  private int number_edges;
+  private Integer adjacency_matrix[][];
+  private Integer[][] adj_m;
+  // private int size;
+  // private Edge edge = new Edge();
+
+  public WeightedGraph() {
+
+  }
+
+  public WeightedGraph(int n) {
+    number_vertices = n;
+    // size = number_vertices + 5;
+    number_edges = 0;
+    adjacency_matrix = new Integer[number_vertices][number_vertices];
+    if (number_vertices <= 0) {
+      throw new WeightedGraphException("WeightedGraphException: Number of vertices must be nonnegative");
+    } else {
+      System.out.print("Creating empty graph. Please wait... \n");
+      for (int i = 0; i < number_vertices; i++) {
+        for (int j = 0; j < number_vertices; j++) {
+          createEmptyGraph(i, j);
+        }
+      }
+      System.out.print("Empty graph created: \n\n");
+      printGraph();
+    }
+  }
+
+  // public int getSize() {return size;}
+
+  public void createMyWeightedGraph() {
+    System.out.print("Creating weighted graph. Please wait...\n");
+    addEdge(0, 4, 1);
+    addEdge(0, 6, 3);
+    addEdge(4, 1, 4);
+    addEdge(1, 2, 2);
+    addEdge(6, 2, 10);
+    addEdge(6, 3, 8);
+    addEdge(6, 7, 5);
+    addEdge(3, 8, 4);
+    addEdge(7, 8, 7);
+    addEdge(7, 5, 2);
+    addEdge(5, 9, 2);
+    System.out.print("Weighted graph: \n\n");
+    printGraph();
+  }
+
+  public void createEmptyGraph(int row, int column) throws WeightedGraphException {
+    adjacency_matrix[row][column] = 0;
+    adjacency_matrix[column][row] = 0;
+  }
+
+  public void printGraph() {
+    for (int i = 0; i < number_vertices; i++) {
+      for (int j = 0; j < number_vertices; j++) {
+        System.out.print(adjacency_matrix[i][j] + " ");
+        if (j == 9) {
+          System.out.print("\n");
+        }
+      }
+    }
+  }
+
+  public int getNumberVertices() {
+    return number_vertices;
+  }
+
+  public int getNumberEdges() {
+    return number_edges;
+  }
+
+  public int getEdgeWeight(Integer v, Integer w) {
+    return adjacency_matrix[v][w];
+  }
+
+  public void addEdge(Integer v, Integer w, int wgt) throws WeightedGraphException {
+    adjacency_matrix[v][w] = wgt;
+    adjacency_matrix[w][v] = wgt;
+  }
+
+  public void removeEdge(Edge e) {
+    Integer v = e.getV();
+    Integer w = e.getW();
+    adjacency_matrix[v][w] = 0;
+    adjacency_matrix[w][v] = 0;
+    number_edges--;
+  }
+
+  public Edge findEdge(Integer v, Integer w) {
+    int wgt = adjacency_matrix[v][w];
+    return new Edge(v, w, wgt);
+  }
+
+  public Integer[][] getAdjacencyMatrix() {
+    for (int i = 0; i < number_vertices; i++) {
+      for (int j = 0; j < number_vertices; j++) {
+        adj_m[i][j] = adjacency_matrix[i][j];
+      }
+    }
+    return adj_m;
+  }
+
+  public boolean[] findSpanningTree(Integer vertex, boolean[] visit) {
+    GraphStack stack = new GraphStack();
+    stack.push(vertex);
+    visit[vertex] = true;
+    for (int i = vertex; i < number_vertices; i++) {
+      for (int j = 0; j < number_vertices; j++) {
+        System.out.println("Searching row: " + i + " column: " + j);
+        if (adjacency_matrix[i][j] > 0 && visit[j] == false) {
+          System.out.println("Pushing " + j);
+          stack.push(j);
+          visit[j] = true;
+          int new_vertex = j;
+          i = new_vertex;
+          j = 0;
+          continue;
+        } else {
+          System.out.println("Skipping column " + j);
+        }
+      }
+    }
+    return visit = new boolean[number_vertices];
+    // 0-4-1-2-6-3-8-7-5-9
+    // while (!stack.isEmpty()) {vertex = stack.pop();if (vertex == 0) {if
+    // (visited[vertex + 1] == true) {System.out.print(vertex + " ");}} else if
+    // (visited[vertex - 1] == true) {}}
+  }
+}
