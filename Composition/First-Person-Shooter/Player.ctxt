@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Player
+comment0.text=\n\ \#1\ Give\ your\ player\ a\ Bullet\ object\ creating\ a\ has-a\ relationship\ between\ the\n\ Player\ and\ the\ Bullet\n
+comment1.params=
+comment1.target=Player()
+comment1.text=\#2\ Create\ a\ Player\ constructor\ for\ your\ Player\ class
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\ \#3\ Use\ Greenfoot\ methods\ to\ make\ your\ Player\ respond\ to\ user\ inputs.\ \nKeep\ in\ mind\ the\ difference\ between\ static\ and\ non-static\ methods
+numComments=3

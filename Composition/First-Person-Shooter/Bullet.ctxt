@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Bullet
+comment0.text=A\ first\ person\ shooter,\ arcade\ game\ with\ an\ Actor\ inside\ of\ MyWorld,\ \n\ a\ bullet\ extending\ that\ actor.\n\ @author\ Bryan\ Nonni\ [Original\ credit\:\ Craig\ Sapp,\ Sav\ School\ of\ Arts]\n@version\ 2.0
+comment1.params=s
+comment1.target=Bullet(int)
+comment1.text=\ \#2\ Create\ a\ Bullet\ constructor\ and\ pass\ an\ argument\ setting\ the\ \nclass\ instance\ variable\ equal\ to\ the\ argument
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\ Use\ the\ act\ method\ to\ move\ the\ bullet\ @\ the\ speed\ set\ in\ your\ \#1\ \ninstance\ variable
+numComments=3
