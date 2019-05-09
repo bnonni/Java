@@ -6,15 +6,15 @@ Use stack data structure to implement this program.
 */
 public class PostFixer {
  public static void main(String[] args) {
-  String infixExp1 = "a-(b+c*d)/e";
-  String infixExp2 = "a+((b*c)-d)/e";
-  String infixExp3 = "((a+b)*c)/d";
-  String infixExp4 = "(a/b)*c+d-e";
-  String infixExp5 = "a+b*c/d";
-  System.out.println(convertInfix(infixExp1));
-  System.out.println(convertInfix(infixExp2));
-  System.out.println(convertInfix(infixExp3));
-  System.out.println(convertInfix(infixExp4));
+  // String infixExp1 = "a-(b+c*d)/e";
+  // String infixExp2 = "a+((b*c)-d)/e";
+  // String infixExp3 = "((a+b)*c)/d";
+  // String infixExp4 = "(a/b)*c+d-e";
+  String infixExp5 = "a+b*(c-d)/(e*f)";
+  // System.out.println(convertInfix(infixExp1));
+  // System.out.println(convertInfix(infixExp2));
+  // System.out.println(convertInfix(infixExp3));
+  // System.out.println(convertInfix(infixExp4));
   System.out.println(convertInfix(infixExp5));
  }
 
@@ -33,6 +33,7 @@ public class PostFixer {
    case 'c':
    case 'd':
    case 'e':
+   case 'f':
     postfixExp = postfixExp + c;
     break;
    case '(':
