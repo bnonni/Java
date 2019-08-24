@@ -45,35 +45,40 @@ public class SelectionSort {
   // 11. declare select method
   public static void select(int[] selArr, int n) {
     // 12. use outer for loop to iterate through selArr
-    for (int j = 0; j < n - 1; j++) {
+    for (int i = 0; i < n - 1; i++) {
 
       // 13. set a variable to start at the first index of the array
-      int previous = j;
+      int min = i;
 
       // 14. use inner for loop to grab the next index in the array
-      for (int next = j + 1; next < n; next++) {
+      for (int j = i + 1; j < n; j++) {
 
         // 15. compare the vals @ index 0 & 1
-        if (selArr[next] < selArr[previous]) {
+        if (selArr[j] < selArr[min]) {
           // 16. if val @ 1 < val @ 0, reset previous var to next index
           // first round will compare value @ index 0 to value @ index 1
           // if true, previous is reset to index 1 to be swapped with index 0 later
           // if not, the loop restarts & counts up to find a value smaller than the first
-          previous = next;
+          min = j;
         }
       }
       // 17. call sort method & pass arr, previous index, outer loop index
-      sort(selArr, previous, j);
+      // sort(selArr, min, i);
+      int largerVal = selArr[i];
+      // 19. move the smaller value at higherIndex to lowerIndex
+      selArr[i] = selArr[min];
+      // 20. move the larger value to the higherIndex
+      selArr[min] = largerVal;
     }
   }
 
   // arr, 1, 0
-  public static void sort(int[] sortArr, int higherIndex, int lowerIndex) {
-    // 18. store the larger value temporarily
-    int largerVal = sortArr[lowerIndex];
-    // 19. move the smaller value at higherIndex to lowerIndex
-    sortArr[lowerIndex] = sortArr[higherIndex];
-    // 20. move the larger value to the higherIndex
-    sortArr[higherIndex] = largerVal;
-  }
+  // public static void sort(int[] selArr, int min, int i) {
+  // // 18. store the larger value temporarily
+  // int largerVal = selArr[i];
+  // // 19. move the smaller value at higherIndex to lowerIndex
+  // selArr[i] = selArr[min];
+  // // 20. move the larger value to the higherIndex
+  // selArr[min] = largerVal;
+  // }
 }

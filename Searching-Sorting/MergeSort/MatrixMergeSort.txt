@@ -1,0 +1,40 @@
+A =[3   10   4 |
+   |1 1012 −18 |
+   |3 −12  −101|
+   |67  0  −23 ]
+p = first row index
+r = last row index
+c = number of columns
+
+MatrixMergeSort(A, p, r)
+   if p < r
+      q = floor((p + r)/2)
+      MatrixMergeSort(A, p, q)
+      MatrixMergeSort(A, q+1, r)
+      MergeMatrix(A, p, q, r, c)
+
+MergeMatrix(A, p, q, r, c)
+   n1 = q - p + 1
+   n2 = r - q
+   //L & R represent subarrays
+   for i = 1 to n1
+     L[i] = A[p + i - 1]
+   for j = 1 to n2 
+     R[j] = A[q + j]
+   i = 1
+   j = 1
+   for k = p to r
+    if L[i,j] == R[i,j]
+      m = j
+      while(m <= c)
+         m = m + 1
+         if L[i,m] < R[i,m]
+            A[k] = L[i]
+         elif L[i,m] > R[i,m]
+            A[k] = R[j]
+    else if L[i,j] < R[i,j]
+      A[k] = L[i]
+      i = i + 1
+    else
+      A[k] = R[j]
+      j = j + 1

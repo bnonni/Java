@@ -120,8 +120,8 @@ public class WeightedGraph implements WeightedGraphInterface {
     PriorityQueue<Edge> queue = new PriorityQueue<Edge>();
     visited[0] = true;
 
-    for (int i : findAdjacentVerticies(0)) {
-      queue.add(new Edge(0, i, getEdgeWeight(0, i)));
+    for (int i : findAdjacentVerticies(source)) {
+      queue.add(new Edge(source, i, getEdgeWeight(source, i)));
     }
 
     while (!queue.isEmpty()) {
