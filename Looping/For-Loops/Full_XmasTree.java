@@ -7,9 +7,10 @@ public class Full_XmasTree {
          int rows = in.nextInt();
         for(int i = 0; i <= rows; i++) {
             for(int j = rows; j > 0; j--){
-                System.out.print(" *");
+                System.out.print("*");
             }
             System.out.println();
         }
+        in.close();
     }
 }

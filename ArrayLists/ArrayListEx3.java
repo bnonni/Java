@@ -1,6 +1,7 @@
+package ArrayLists;
 import java.util.*;
 
-public class ArrayListMain {
+public class ArrayListEx3 {
  public static void main(String[] args) {
   ArrayList<Integer> list3 = new ArrayList<Integer>();
   list3.add(2);

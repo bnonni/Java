@@ -16,7 +16,7 @@ public class SelectionSort {
     int[] arr = new int[100];
 
     // 6. use for loop to generate 100 random ints
-    for (var i = 0; i <= 99; i++) {
+    for (int i = 0; i <= 99; i++) {
       // 7. Use Math class to create 100 random ints between 0 - 99
       int r = (int) (Math.random() * 100 - 1);
       // 8. store random ints in array arr

@@ -1,8 +1,8 @@
 public class MyBinarySearch {
    public static void main(String[] args) {
       int[] a = { -1, 3, 5, 8, 15, 18, 22, 39, 40, 42, 50, 57, 71, 73, 74 };
-      int target = -1;
-      System.out.print(binarySearch(a, target));
+      int target = 3;
+      System.out.println(binarySearch(a, target));
    }
 
    public static int binarySearch(int[] a, int target) {
@@ -19,6 +19,6 @@ public class MyBinarySearch {
             max = mid - 1; // 0 - 1 = -1
          }
       }
-      return -1;
+      return target;
    }
 }
