@@ -12,10 +12,10 @@ class QuickSort {
       arr[i] = r;
     }
   System.out.println("Unsorted array" + Arrays.toString(arr));
-  int n = arr.length;
+  int n = arr.length - 1;
 
   QuickSort qs = new QuickSort();
-  qs.sort(arr, 0, n - 1);
+  qs.sort(arr, 0, n);
 
   System.out.println("Sorted array " + Arrays.toString(arr));
  }
@@ -29,8 +29,7 @@ class QuickSort {
    int p = partition(arr, low, high);
    System.out.println("p: " + p + ", " + "arr[p]: " + arr[p]);
 
-   // Recursively sort elements before
-   // partition and after partition
+   // Recursively sort elements before partition and after partition
    sort(arr, low, p - 1);
    sort(arr, p + 1, high);
    

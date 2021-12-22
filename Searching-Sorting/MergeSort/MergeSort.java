@@ -30,8 +30,8 @@ public class MergeSort {
   long endTime = System.nanoTime();
   long nanoTime = endTime - startTime;
   long milliTime = nanoTime / 1000000;
-  System.out.println("\nThis selection sort took: " + nanoTime + " nanoseconds.");
-  System.out.println("\nThis selection sort took: " + milliTime + " milliseconds.\n");
+  System.out.println("\nMerge Sort took: " + nanoTime + " nanoseconds.");
+  System.out.println("\nMerge Sort took: " + milliTime + " milliseconds.\n");
  }
 
  // 11. declare split method and pass arr to sortArr
