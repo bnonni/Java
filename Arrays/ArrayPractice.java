@@ -14,8 +14,5 @@ public class ArrayPractice{
 
         String[] newArr;
         newArr = new String[]{"arm", "bry", "core"};
-    
-
-        
     }
 }
